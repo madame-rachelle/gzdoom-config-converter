@@ -45,6 +45,8 @@ int main(int argc, char** argv)
 	string game, mod;
 	string aliasname;
 
+	char usernameconfig[257];
+
 	size_t found;
 	uint8_t handletype = 0;
 
@@ -91,11 +93,19 @@ int main(int argc, char** argv)
 	defcvars.open("defcvars.txt");
 	defbinds.open("defbinds.txt");
 
+#ifdef _WIN32
+	snprintf(usernameconfig, 256, "gzdoom-%s.ini", getenv("USERNAME"));
+#endif
+
 	// check for the presence of gzdoom.ini and open it
-	if (fexists("gzdoom.ini"))
-		gzdoomini.open("gzdoom.ini");
-	else if (fexists("gzdoom_portable.ini"))
+	if (fexists("gzdoom_portable.ini"))
 		gzdoomini.open("gzdoom_portable.ini");
+#ifdef _WIN32
+	else if (fexists(usernameconfig))
+		gzdoomini.open(usernameconfig);
+#endif
+	else if (fexists("gzdoom.ini"))
+		gzdoomini.open("gzdoom.ini");
 	else
 	{
 		cout << "gzdoom.ini or gzdoom_portable.ini does not exist!\n";
@@ -113,7 +123,7 @@ int main(int argc, char** argv)
 			for (const sections &s : section_list)
 			{
 				char checkheader[257], checkline[257];
-				sprintf(checkheader, s.header.c_str(), game.c_str(), mod.c_str());
+				snprintf(checkheader, 256, s.header.c_str(), game.c_str(), mod.c_str());
 				for (uint16_t j = 0; j < 256; j++)
 				{
 					if (checkheader[j] >= 'A' && checkheader[j] <= 'Z')
