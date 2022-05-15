@@ -34,6 +34,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 #include <fstream>
 #include <string>
 #include <string.h>
+#include <algorithm>
+#include <cctype>
 
 #include "config-converter.h"
 
@@ -77,6 +79,22 @@ int main(int argc, char** argv)
 		{ HT_BIND,		"bind ",		"[%s.%s.Bindings]" 			},
 		{ HT_BIND,		"doublebind ",	"[%s.%s.DoubleBindings]" 	},
 		{ HT_BIND,		"mapbind ",		"[%s.%s.AutomapBindings]" 	},
+	};
+
+	string blacklisted_cvars[] =
+	{
+		"disablecrashlog",
+		"gl_control_tear",
+		"in_mouse",
+		"joy_dinput",
+		"joy_ps2raw",
+		"joy_xinput",
+		"k_allowfullscreentoggle",
+		"k_mergekeys",
+		"m_swapbuttons",
+		"queryiwad_key",
+		"vid_gpuswitch",
+		"vr_enable_quadbuffered"
 	};
 
 	// check for the presence of output files, and error out if they're found
@@ -151,12 +169,21 @@ int main(int argc, char** argv)
 			switch (handletype)
 			{
 			case HT_CVAR:
+				for (const string &bl : blacklisted_cvars)
+				{
+					std::transform(var.begin(), var.end(), var.begin(),
+						[](unsigned char c){ return std::tolower(c); });
+
+					// ignore blacklisted cvars
+					if (!bl.compare(var))
+						break;
+				}
 				defcvars << streamcommand << var << " " << quote << value << quote << endl;
 				break;
 			case HT_ALIAS:
 				if (!var.compare("Name"))
 					aliasname = value;
-				if (!var.compare("Value"))
+				if (!var.compare("Command"))
 					keyconf << streamcommand << aliasname << " " << quote << value << quote << endl;
 				break;
 			case HT_VERSION:
