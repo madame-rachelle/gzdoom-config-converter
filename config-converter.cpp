@@ -183,7 +183,7 @@ int main(int argc, char** argv)
 			case HT_ALIAS:
 				if (!var.compare("Name"))
 					aliasname = value;
-				if (!var.compare("Command"))
+				if (!var.compare("Command") || !var.compare("Value"))
 					keyconf << streamcommand << aliasname << " " << quote << value << quote << endl;
 				break;
 			case HT_VERSION:
