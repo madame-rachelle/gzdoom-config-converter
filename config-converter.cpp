@@ -94,7 +94,8 @@ int main(int argc, char** argv)
 		"m_swapbuttons",
 		"queryiwad_key",
 		"vid_gpuswitch",
-		"vr_enable_quadbuffered"
+		"vr_enable_quadbuffered",
+		"m_filter"
 	};
 
 	// check for the presence of output files, and error out if they're found
