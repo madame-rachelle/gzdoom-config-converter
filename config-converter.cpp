@@ -95,7 +95,9 @@ int main(int argc, char** argv)
 		"queryiwad_key",
 		"vid_gpuswitch",
 		"vr_enable_quadbuffered",
-		"m_filter"
+		"m_filter",
+		"gl_debug",
+		"vid_adapter"
 	};
 
 	// check for the presence of output files, and error out if they're found
