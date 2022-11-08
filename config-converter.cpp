@@ -97,7 +97,13 @@ int main(int argc, char** argv)
 		"vr_enable_quadbuffered",
 		"m_filter",
 		"gl_debug",
-		"vid_adapter"
+		"vid_adapter",
+		"sys_statsenabled47",
+		"sys_statsenabled49",
+		"save_dir",
+		"sys_statsport",
+		"sys_statshost",
+		"sentstats_hwr_done"
 	};
 
 	// check for the presence of output files, and error out if they're found
