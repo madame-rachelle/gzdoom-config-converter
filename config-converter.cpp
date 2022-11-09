@@ -38,6 +38,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 #include <cctype>
 
 #include "config-converter.h"
+#include "version.h"
 
 int main(int argc, char** argv)
 {
