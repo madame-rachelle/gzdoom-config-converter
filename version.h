@@ -1,0 +1,2 @@
+#define VERSION "1.3"
+#define COPYRIGHT_YEAR "2019-2022"

@@ -52,6 +52,12 @@ int main(int argc, char** argv)
 	size_t found;
 	uint8_t handletype = 0;
 
+	cout << "GZDoom Config Converter " << VERSION << endl;
+	cout << "Copyright (c) " << COPYRIGHT_YEAR << endl;
+	cout << "This software is released under the terms of the BSD 3-clause license" << endl;
+	cout << "Please review the source code for further information" << endl;
+	cout << "Github repo: https://github.com/madame-rachelle/gzdoom-config-converter" << endl << endl;
+
 	if (argc <= 1)
 	{
 		cout << "Must specify config name (ie Doom/Hexen/etc)!\n";
