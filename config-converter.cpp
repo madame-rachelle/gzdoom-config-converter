@@ -111,21 +111,6 @@ int main(int argc, char** argv)
 		"sys_statsport",
 		"sys_statshost",
 		"sentstats_hwr_done",
-		"disablecrashlog",
-		"gl_control_tear",
-		"gl_debug",
-		"in_mouse",
-		"joy_dinput",
-		"joy_ps2raw",
-		"joy_xinput",
-		"k_allowfullscreentoggle",
-		"k_mergekeys",
-		"m_swapbuttons",
-		"queryiwad_key",
-		"save_dir",
-		"vid_adapter",
-		"vid_gpuswitch",
-		"vr_enable_quadbuffered",
 	};
 
 	// check for the presence of output files, and error out if they're found
