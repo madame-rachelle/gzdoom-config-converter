@@ -1,6 +1,6 @@
 /*
 ===============================================================================
-Copyright (C) 2020 Rachael Alexanderson
+Copyright (C) 2019-2023 Rachael Alexanderson
 
 Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -182,6 +182,8 @@ int main(int argc, char** argv)
 			string value = line.substr(found + 1);
 			const char quote[2] = {34, 0};
 
+			bool isblocked = false;
+
 			switch (handletype)
 			{
 			case HT_CVAR:
@@ -192,9 +194,10 @@ int main(int argc, char** argv)
 
 					// ignore blacklisted cvars
 					if (!bl.compare(var))
-						break;
+						isblocked = true;
 				}
-				defcvars << streamcommand << var << " " << quote << value << quote << endl;
+				if (!isblocked)
+					defcvars << streamcommand << var << " " << quote << value << quote << endl;
 				break;
 			case HT_ALIAS:
 				if (!var.compare("Name"))
