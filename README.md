@@ -6,5 +6,5 @@ Usage: `./convert-config <gamename> <modname>`
 modname is optional
 
 examples:
-`./convert-config Hexen`
-`./convert-config Doom Stronghold`
+- `./convert-config Hexen`
+- `./convert-config Doom Stronghold`
