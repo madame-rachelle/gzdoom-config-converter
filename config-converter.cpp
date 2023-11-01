@@ -36,9 +36,12 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 #include <string.h>
 #include <algorithm>
 #include <cctype>
+#include <cstdint>
 
 #include "config-converter.h"
 #include "version.h"
+
+using namespace std;
 
 int main(int argc, char** argv)
 {
