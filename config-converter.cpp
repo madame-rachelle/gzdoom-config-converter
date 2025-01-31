@@ -114,6 +114,14 @@ int main(int argc, char** argv)
 		"sys_statsport",
 		"sys_statshost",
 		"sentstats_hwr_done",
+		"adl_custom_bank",
+		"fluid_lib",
+		"fluid_patchset",
+		"midi_config",
+		"gus_patchdir",
+		"timidity_config",
+		"wildmidi_config",
+		"save_dir",
 	};
 
 	// check for the presence of output files, and error out if they're found
