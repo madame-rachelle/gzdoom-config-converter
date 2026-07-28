@@ -45,7 +45,7 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-	ifstream gzdoomini;
+	ifstream uzdoomini;
 	ofstream keyconf, defcvars, defbinds;
 	string line, streamcommand;
 	string game, mod;
@@ -56,11 +56,11 @@ int main(int argc, char** argv)
 	size_t found;
 	uint8_t handletype = 0;
 
-	cout << "GZDoom Config Converter " << VERSION << endl;
+	cout << "UZDoom Config Converter " << VERSION << endl;
 	cout << "Copyright (c) " << COPYRIGHT_YEAR << " Rachael Alexanderson" << endl;
 	cout << "This software is released under the terms of the BSD 3-clause license" << endl;
 	cout << "Please review the source code for further information" << endl;
-	cout << "Github repo: https://github.com/madame-rachelle/gzdoom-config-converter" << endl << endl;
+	cout << "Github repo: https://github.com/madame-rachelle/uzdoom-config-converter" << endl << endl;
 
 	if (argc <= 1)
 	{
@@ -139,25 +139,25 @@ int main(int argc, char** argv)
 	defbinds.open("defbinds.txt");
 
 #ifdef _WIN32
-	snprintf(usernameconfig, 256, "gzdoom-%s.ini", getenv("USERNAME"));
+	snprintf(usernameconfig, 256, "uzdoom-%s.ini", getenv("USERNAME"));
 #endif
 
-	// check for the presence of gzdoom.ini and open it
-	if (fexists("gzdoom_portable.ini"))
-		gzdoomini.open("gzdoom_portable.ini");
+	// check for the presence of uzdoom.ini and open it
+	if (fexists("uzdoom_portable.ini"))
+		uzdoomini.open("uzdoom_portable.ini");
 #ifdef _WIN32
 	else if (fexists(usernameconfig))
-		gzdoomini.open(usernameconfig);
+		uzdoomini.open(usernameconfig);
 #endif
-	else if (fexists("gzdoom.ini"))
-		gzdoomini.open("gzdoom.ini");
+	else if (fexists("uzdoom.ini"))
+		uzdoomini.open("uzdoom.ini");
 	else
 	{
-		cout << "gzdoom.ini or gzdoom_portable.ini does not exist!\n";
+		cout << "uzdoom.ini or uzdoom_portable.ini does not exist!\n";
 		return 0;
 	}
 
-	while ( getline(gzdoomini, line) )
+	while ( getline(uzdoomini, line) )
 	{
 		if (line.empty())
 			continue;
@@ -231,7 +231,7 @@ int main(int argc, char** argv)
 	defbinds.close();
 	defcvars.close();
 	keyconf.close();
-	gzdoomini.close();
+	uzdoomini.close();
 	return 0;
 }
 

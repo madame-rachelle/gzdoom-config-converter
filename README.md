@@ -1,7 +1,7 @@
-[![Continuous Integration](https://github.com/madame-rachelle/gzdoom-config-converter/actions/workflows/ccpp.yml/badge.svg)](https://github.com/madame-rachelle/gzdoom-config-converter/actions/workflows/ccpp.yml)
+[![Continuous Integration](https://github.com/madame-rachelle/uzdoom-config-converter/actions/workflows/ccpp.yml/badge.svg)](https://github.com/madame-rachelle/uzdoom-config-converter/actions/workflows/ccpp.yml)
 
-# gzdoom-config-converter
-Converts a gzdoom.ini to its keyconf, defbinds, and defcvars equivalent
+# uzdoom-config-converter
+Converts a uzdoom.ini to its keyconf, defbinds, and defcvars equivalent
 
 Usage: `./convert-config <gamename> <modname>`
 modname is optional
